@@ -1,7 +1,9 @@
 {
-    "name": "confrariaweb/laravel-vendor",
+    "name": "confrariaweb/laravel-import-agendor",
     "description": "Motor para todos os componentes",
     "keywords": [
+        "import",
+        "agendor",
         "framework",
         "laravel"
     ],
@@ -18,13 +20,13 @@
     },
     "autoload": {
         "psr-4": {
-            "ConfrariaWeb\\Vendor\\": "src"
+            "ConfrariaWeb\\ImportAgendor\\": "src"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "ConfrariaWeb\\Vendor\\Providers\\VendorServiceProvider"
+                "ConfrariaWeb\\ImportAgendor\\Providers\\ImportAgendorServiceProvider"
             ]
         }
     },

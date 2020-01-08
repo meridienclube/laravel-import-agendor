@@ -1,6 +1,6 @@
 <?php
 
-namespace ConfrariaWeb\Vendor\Providers;
+namespace ConfrariaWeb\ImportAgendor\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
