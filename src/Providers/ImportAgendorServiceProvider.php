@@ -24,7 +24,9 @@ class ImportAgendorServiceProvider extends ServiceProvider
      */
     public function register()
     {
-
+        $this->app->bind('ImportAgendorService', function () {
+            return new ImportAgendorService();
+        });
     }
 
 }
