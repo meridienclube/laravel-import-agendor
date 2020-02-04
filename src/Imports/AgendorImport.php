@@ -75,7 +75,7 @@ class AgendorImport implements ToModel, WithBatchInserts, WithChunkReading, With
                     ]
                 ],
                 'sync' => [
-                    'address' => [
+                    /*'address' => [
                         "country" => $row['pais'],
                         "state" => $row['estado'],
                         "city" => $row['cidade'],
@@ -84,7 +84,7 @@ class AgendorImport implements ToModel, WithBatchInserts, WithChunkReading, With
                         "street" => $row['rua'],
                         "number" => $row['numero'],
                         "complement" => $row['complemento']
-                    ],
+                    ],*/
                 ],
                 'attach' => [
                     //'indicator' => isset($indicator) ? $indicator->id : NULL,
