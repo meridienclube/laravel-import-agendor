@@ -2,6 +2,7 @@
 
 namespace ConfrariaWeb\ImportAgendor\Providers;
 
+use ConfrariaWeb\ImportAgendor\Services\ImportAgendorService;
 use Illuminate\Support\ServiceProvider;
 
 class ImportAgendorServiceProvider extends ServiceProvider
@@ -14,7 +15,7 @@ class ImportAgendorServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__ . '/../Views', 'import-agendor');
+        $this->loadViewsFrom(__DIR__ . '/../Views', 'importagendor');
     }
 
     /**

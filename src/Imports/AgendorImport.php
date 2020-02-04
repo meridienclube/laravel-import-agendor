@@ -1,8 +1,8 @@
 <?php
 
-namespace MeridienClube\Meridien\Imports;
+namespace ConfrariaWeb\ImportAgendor\Imports;
 
-use MeridienClube\Meridien\Import;
+use ConfrariaWeb\Import\Models\Import;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\WithBatchInserts;
@@ -32,6 +32,7 @@ class AgendorImport implements ToModel, WithBatchInserts, WithChunkReading, With
         //dd($row);
 
         $task_type_id = $this->import->settings['task_type_id'];
+
         $task_status_id = $this->import->settings['task_status_id'];
         $task_type = resolve('TaskTypeService')->find($task_type_id);
         //$task_status_closed_id = isset($task_type->closed_status_id)? : $task_status_id;
@@ -103,6 +104,7 @@ class AgendorImport implements ToModel, WithBatchInserts, WithChunkReading, With
                 ]
             ]);
         }
+
         $task = resolve('TaskService')->create([
             'type_id' => $task_type_id,
             'sync' => [
@@ -110,7 +112,8 @@ class AgendorImport implements ToModel, WithBatchInserts, WithChunkReading, With
                 'responsibles' => [$user_id]
             ],
             'user_id' => $user_id,
-            'datetime' => Date::excelToDateTimeObject($row['data_de_agendamento']),
+            //'start' => Date::excelToDateTimeObject($row['data_de_agendamento']),
+            'start' => Date::excelToDateTimeObject($row['data_de_agendamento'])->format('Y-m-d H:i:s'),
             //'status_id' => $task_status_id,
             'status_id' => (empty($row['data_de_finalizacao']))? $task_status_id : $task_status_closed_id,
             'priority' => 1
